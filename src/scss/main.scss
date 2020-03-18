@@ -146,23 +146,21 @@ footer p {
 }
 .aboutContainer {  
   @include for-size(desktop) {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
+  @mixin vendor {  
+  }
   padding-left: 150px;
   padding-right: 150px;
   }
+  }
   @include for-size(tablet) {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;   
+  @mixin vendor-tablet { 
   }
   @include for-size(phone) {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin-top: 1em;
-}
+  @mixin vendor-tablet {
+
+  }
+  margin-top: 1em;
+  }
 }
 .picAbout {
   @include for-size(desktop) {
@@ -232,9 +230,8 @@ footer p {
   }
 }
 .row {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
+  @mixin vendor {
+  }
 }
 .projectContainer a {
   font-size: 1em;

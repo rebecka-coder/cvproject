@@ -7,7 +7,7 @@ $second-color: #707070;
 //Variabler storlekar
 $maximum: max-width 100vw;
 
-//Variabler för vendor prefixes
+//Mixins för vendor prefixes
 @mixin vendor {
 display: -webkit-box;
 display: -ms-flexbox;

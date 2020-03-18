@@ -1,38 +1,4 @@
-"use strict"; //Länk till webbtjänstens alla sidor för studier, arbete samt projekt
-
-var urlStudies = 'http://studenter.miun.se/~reho0301/dt173g/cvprojekt/cv-webservice/studies.php';
-var urlWork = 'http://studenter.miun.se/~reho0301/dt173g/cvprojekt/cv-webservice/work.php';
-var urlProject = 'http://studenter.miun.se/~reho0301/dt173g/cvprojekt/cv-webservice/projects.php'; //Funktioner för JSON
-//Hämta utbildning/kurser, metod GET
-
-function getStudies() {
-  fetch(urlStudies) //Hämtar länk från webbtjänsten studies.php
-  .then(function (res) {
-    return res.json();
-  }).then(function (data) {
-    var outputS = ""; //Variabel för div klassen "output"
-    //Loop för utskrift i tabellformat för utbildning/kurser, samt skapar knappar för uppdatera och radera (skickar med id)
-
-    data.forEach(function (studies) {
-      outputS += "\n        <div class=\"mainText\">\n        </br><div class=\"row\"><img src=\"./images/studieslogo.png\"/><h4>".concat(studies.university, "</h4><br/></div>\n        </br><div class=\"row\"><img src=\"./images/studyTitle.png\"/><h4>").concat(studies.studyName, "</h4><br/></div>\n        </br><div class=\"row\"><img src=\"./images/calenderlogo.png\"/><h4>").concat(studies.studyDate, "</h4><br/></div>\n        </div>\n        ");
-    });
-    document.getElementById('outputS').innerHTML = outputS;
-  });
-}
-
-getStudies(); //Kalla på funktionen hämta utbildning/kurser
-//Hämta arbeten, metod GET
-
-function getWork() {
-  fetch(urlWork) //Hämtar länk från webbtjänsten work.php
-  .then(function (res) {
-    return res.json();
-  }).then(function (data) {
-    var outputW = ""; //Variabel för div klassen "output"
-    //Loop för utskrift i tabellformat för arbeten, samt skapar knappar för uppdatera och radera (skickar med id)
-
-    data.forEach(function (work) {
-      outputW += "\n        <div class=\"mainText\">\n        </br><div class=\"row\"><img src=\"./images/worklogo.png\"/><h4>".concat(work.workTitle, "</h4><br/></div>\n        </br><div class=\"row\"><img src=\"./images/workPlacelogo.png\"/><h4>").concat(work.workPlace, "</h4><br/></div>\n        </br><div class=\"row\"><img src=\"./images/calenderlogo.png\"/><h4>").concat(work.workDate, "</h4><br/></div>\n        </div>");
+"use strict";const urlStudies="http://studenter.miun.se/~reho0301/dt173g/cvprojekt/cv-webservice/studies.php",urlWork="http://studenter.miun.se/~reho0301/dt173g/cvprojekt/cv-webservice/work.php",urlProject="http://studenter.miun.se/~reho0301/dt173g/cvprojekt/cv-webservice/projects.php";function getStudies(){fetch(urlStudies).then(e=>e.json()).then(e=>{let t="";e.forEach(function(e){t+=`\n        <div class="mainText">\n        </br><div class="row"><img src="./images/studieslogo.png"/><h4>${e.university}</h4><br/></div>\n        </br><div class="row"><img src="./images/studyTitle.png"/><h4>${e.studyName}</h4><br/></div>\n        </br><div class="row"><img src="./images/calenderlogo.png"/><h4>${e.studyDate}</h4><br/></div>\n        </div>\n        `}),document.getElementById("outputS").innerHTML=t})}function getWork(){fetch(urlWork).then(e=>e.json()).then(e=>{let t="";e.forEach(function(e){t+=`\n        <div class="mainText">\n        </br><div class="row"><img src="./images/worklogo.png"/><h4>${e.workTitle}</h4><br/></div>\n        </br><div class="row"><img src="./images/workPlacelogo.png"/><h4>${e.workPlace}</h4><br/></div>\n        </br><div class="row"><img src="./images/calenderlogo.png"/><h4>${e.workDate}</h4><br/></div>\n        </div>`}),document.getElementById("outputW").innerHTML=t})}function getProject(){fetch(urlProject).then(e=>e.json()).then(e=>{let t="";e.forEach(function(e){t+=`\n        <div class="projectText">\n        <img src="./images/${e.projectTitle}.png"/><br/>\n        </br><div class="row"><img class='projectlogo' src='./images/project.png'/><h4>${e.projectTitle}</h4><br/></div>\n        </br><div class="row"><img class='urlLogo' src='./images/link.png'/><a href='${e.url}'target="_blank">Länk till webbplatsen</a><br/></div>\n        </br><div class="row"><h4>${e.description}</h4><br/></div>\n        </div>\n        `}),document.getElementById("outputP").innerHTML=t})}getStudies(),getWork(),getProject();rkTitle, "</h4><br/></div>\n        </br><div class=\"row\"><img src=\"./images/workPlacelogo.png\"/><h4>").concat(work.workPlace, "</h4><br/></div>\n        </br><div class=\"row\"><img src=\"./images/calenderlogo.png\"/><h4>").concat(work.workDate, "</h4><br/></div>\n        </div>");
     });
     document.getElementById('outputW').innerHTML = outputW;
   });
